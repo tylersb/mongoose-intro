@@ -11,11 +11,15 @@ mongoose.connect(uri)
 // use mongoose's connection methods to validate the db connection and do some useful console.logs
 const db = mongoose.connection
 // connection success
-db.once('open', () => console.log(`mongoDB has connected @ ${db.host}:${db.port}  🔗`))
+db.once('open', () =>
+  console.log(`mongoDB has connected @ ${db.host}:${db.port}  🔗`)
+)
 // connection failure
-db.on('error', err => console.log('🔥 the datacenter has burned to the ground:', err))
+db.on('error', (err) =>
+  console.log('🔥 the datacenter has burned to the ground:', err)
+)
 
 // export all of our models
 module.exports = {
-    Drink: require('./Drink')
+  Drink: require('./Drink')
 }
